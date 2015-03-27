@@ -3,23 +3,41 @@
 
     <div class="floorplan" style="background-image: url('{{selectedImage}}')">
     </div>
-    <div class="row">
+    <div>
+    <br/>
+      <h3 style="text-align: center;" ng-if="somethingSelected">
+        Your {{selectedSensorName}}: {{selectedSensorValue}} 
+      </h3>
+      <h3 style="text-align: center;" ng-if="!somethingSelected">
+        Your Environment
+      </h3>
+    </div>
+
+    <div class="row sensorBar">
       <div class="col">
-        <button class="button icon-center ion-thermometer button-positive" ng-click="selectSensor(0)"></button>
+        <button class="button icon-center ion-thermometer {{buttonClass[1]}}" ng-click="selectSensor(1)"></button>
       </div>
       <div class="col">
-        <button class="button icon-center ion-waterdrop button-positive" ng-click="selectSensor(1)"></button>
+        <button class="button icon-center ion-waterdrop {{buttonClass[2]}}" ng-click="selectSensor(2)"></button>
       </div>
       <div class="col">
-        <button class="button icon-center ion-volume-medium button-positive" ng-click="selectSensor(2)"></button>
+        <button class="button icon-center ion-volume-medium {{buttonClass[3]}}" ng-click="selectSensor(3)"></button>
       </div>
       <div class="col">
-        <button class="button icon-center ion-ios-lightbulb-outline button-positive" ng-click="selectSensor(3)"></button>
+        <button class="button icon-center ion-ios-lightbulb-outline {{buttonClass[4]}}" ng-click="selectSensor(4)"></button>
       </div>
       <div class="col">
-        <button class="button icon-center ion-ios-people button-positive" ng-click="selectSensor(4)"></button>
+        <button class="button icon-center ion-ios-people {{buttonClass[5]}}" ng-click="selectSensor(5)"></button>
       </div>
-      
-      </div>
+    </div>
+    <br/>
+    <div ng-if="somethingSelected" class="button-bar">
+      <a class="button" ng-click="frowny()">Frowny</a>
+      <a class="button" ng-click="neutral()">Neutral</a>
+      <a class="button" ng-click="happy()">Happy</a>
+    </div>
+    <div ng-if="!somethingSelected" class="button-bar">
+      <a class="button" ng-click="howFeel()">How Do You Feel?</a>
+    </div>
   </ion-content>
 </ion-view>

@@ -1,16 +1,36 @@
 <ion-view view-title="Search">
   <ion-content>
-    <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
+    <div class="floorplan" style="background-image: url('{{selectedImage}}');">
+    </div>
 
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
-          Delete
-        </ion-option-button>
-      </ion-item>
-    </ion-list>
+      <a class="button button-block" style="height: 45px; margin-top: 5px; margin-bottom: 5px;" ng-click="search()">Search</a>
+
+      <div class="list">
+        <div class="item range range-positive" style="margin: -10px">
+          <i class="icon ion-thermometer"></i>
+          <input type="range" name="temp" min="50" max="80" value="data.temp" ng-model="data.temp">
+          {{data.temp - 69}}
+        </div>
+        <div class="item range range-positive" style="margin: -10px">
+          <i class="icon ion-waterdrop"></i>
+          <input type="range" name="hum" min="0" max="100" value="data.hum" ng-model="data.hum">
+          {{data.hum - 45}}
+        </div>
+        <div class="item range range-positive" style="margin: -10px">
+          <i class="icon ion-volume-medium"></i>
+          <input type="range" name="vol" min="20" max="80" value="data.vol" ng-model="data.vol">
+          {{data.vol - 59}}
+        </div>
+        <div class="item range range-positive" style="margin: -10px">
+          <i class="icon ion-ios-lightbulb-outline"></i>
+          <input type="range" name="light" min="100" max="600" value="data.light" ng-model="data.light">
+          {{data.light - 384}}
+        </div>
+        <div class="item range range-positive" style="margin: -10px">
+          <i class="icon ion-ios-people"></i>
+          <input type="range" name="occupancy" min="0" max="100" value="data.occupancy" ng-model="data.occupancy">
+          {{data.occupancy - 87}}
+        </div>
+      </div>
   </ion-content>
 </ion-view>
